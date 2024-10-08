@@ -488,13 +488,32 @@ RC Table::delete_record(const RID &rid)
   return delete_record(record);
 }
 
-RC Table::update_record(Record &record, const Value &value, const FieldMeta *field ) 
+RC Table::update_record(Record &record, const Value &value, string &field_name) 
 { 
   //char *record_data, const Value &value, const FieldMeta *field
   //const FieldMeta *fieldconst, Value *values, Record &record
   //const int normal_field_start_index = table_meta_.sys_field_num();
   RC rc = RC::SUCCESS;
-  set_value_to_record(record.data(), value, field);
+  const FieldMeta *field=table_meta_.field(field_name.c_str());
+  
+  if (nullptr == field) {
+    LOG_WARN("no such field in table: table %s, field %s", name(),field_name.c_str());
+    return RC::SCHEMA_FIELD_NOT_EXIST;
+  }
+  
+  if (field->type() != value.attr_type()) {
+      Value real_value;
+      rc = Value::cast_to(value, field->type(), real_value);
+      if (OB_FAIL(rc)) {
+        LOG_WARN("failed to cast value. table name:%s,field name:%s,value:%s ",
+            table_meta_.name(), field->name(),value.to_string().c_str());
+        return rc;
+      }
+      rc =set_value_to_record(record.data(), real_value, field);
+    } else {
+    rc =set_value_to_record(record.data(), value, field);
+    }
+  
   rc    = record_handler_->update_record(record);
   return rc;
 }

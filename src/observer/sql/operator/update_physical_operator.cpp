@@ -47,23 +47,12 @@ RC UpdatePhysicalOperator::open(Trx *trx)
 
   child->close();
 
-  // 先收集记录再删除
+  // 先收集记录再update
   // 记录的有效性由事务来保证，如果事务不保证删除的有效性，那说明此事务类型不支持并发控制，比如VacuousTrx
-  const FieldMeta *field_metas=table_->table_meta().field(attribute_name_.c_str());
+
   for (Record &record : records_) {
-    if (field_metas->type() != values_->attr_type()) {
-      Value real_value;
-      rc = Value::cast_to(*values_, field_metas->type(), real_value);
-      if (OB_FAIL(rc)) {
-        LOG_WARN("failed to cast value. table name:%s,field name:%s,value:%s ",
-            table_->table_meta().name(), field_metas->name(),values_->to_string().c_str());
-        break;
-      }
-      rc = table_->update_record(record, real_value, field_metas);
-    } else {
-    rc = table_->update_record(record,*values_,field_metas);
-    }
     
+    rc = table_->update_record(record,*values_,attribute_name_);
     if (rc != RC::SUCCESS) {
       LOG_WARN("failed to update record: %s", strrc(rc));
       return rc;
