@@ -62,25 +62,25 @@ RC SqlTaskHandler::handle_sql(SQLStageEvent *sql_event)
     return rc;
   }
 
-  rc = parse_stage_.handle_request(sql_event);
+  rc = parse_stage_.handle_request(sql_event);//CREATE SQLNODE
   if (OB_FAIL(rc)) {
     LOG_TRACE("failed to do parse. rc=%s", strrc(rc));
     return rc;
   }
 
-  rc = resolve_stage_.handle_request(sql_event);
+  rc = resolve_stage_.handle_request(sql_event);//CREATE STMT
   if (OB_FAIL(rc)) {
     LOG_TRACE("failed to do resolve. rc=%s", strrc(rc));
     return rc;
   }
 
-  rc = optimize_stage_.handle_request(sql_event);
+  rc = optimize_stage_.handle_request(sql_event);//CREATE OPERATOR EXE PLAN
   if (rc != RC::UNIMPLEMENTED && rc != RC::SUCCESS) {
     LOG_TRACE("failed to do optimize. rc=%s", strrc(rc));
     return rc;
   }
 
-  rc = execute_stage_.handle_request(sql_event);
+  rc = execute_stage_.handle_request(sql_event);//EXECUTE
   if (OB_FAIL(rc)) {
     LOG_TRACE("failed to do execute. rc=%s", strrc(rc));
     return rc;

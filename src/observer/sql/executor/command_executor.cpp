@@ -48,6 +48,8 @@ RC CommandExecutor::execute(SQLStageEvent *sql_event)
       rc = executor.execute(sql_event);
     } break;
     
+    
+
     case StmtType::DESC_TABLE: {
       DescTableExecutor executor;
       rc = executor.execute(sql_event);
@@ -87,7 +89,7 @@ RC CommandExecutor::execute(SQLStageEvent *sql_event)
     case StmtType::EXIT: {
       rc = RC::SUCCESS;
     } break;
-
+    
     default: {
       LOG_ERROR("unknown command: %d", static_cast<int>(stmt->type()));
       rc = RC::UNIMPLEMENTED;

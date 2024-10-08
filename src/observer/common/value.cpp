@@ -225,6 +225,10 @@ const char *Value::data() const
     case AttrType::CHARS: {
       return value_.pointer_value_;
     } break;
+    /* case AttrType::DATES: {
+      return value_.int_value_;
+    } break;*/
+    
     default: {
       return (const char *)&value_;
     } break;

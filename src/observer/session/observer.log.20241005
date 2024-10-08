@@ -1,0 +1,158 @@
+[2024-10-05 21:51:05.676685 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: init@init.cpp:200] >> Output configuration 
+Begin dump configuration
+[]
+
+Finish dump configuration 
+
+[2024-10-05 21:51:05.678992 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:128, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.679272 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:256, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.679551 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:384, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.679831 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:512, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.680100 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:640, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.680360 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:768, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.680623 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:896, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.680905 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1024, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.681165 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1152, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.681441 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1280, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.681701 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1408, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.681966 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1536, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.682234 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1664, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.682492 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1792, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.682787 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:1920, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.683045 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:2048, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.683300 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:2176, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.683561 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:2304, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.683838 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:2432, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.684104 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: extend@mem_pool.h:244] >> Extend one pool, this->size:2560, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.684132 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: init@mem_pool.h:191] >> Extend one pool, this->size:2560, item_num_per_pool:128, this->name:BufPool.
+[2024-10-05 21:51:05.684150 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: BufferPoolManager@disk_buffer_pool.cpp:776] >> buffer pool manager init with memory size 20971520, page num: 2560, pool num: 20
+[2024-10-05 21:51:05.684215 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: load_pages@double_write_buffer.cpp:290] >> double write buffer load pages done. page num=0
+[2024-10-05 21:51:05.684272 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: init_meta@db.cpp:332] >> Db meta file not exist. db=sys, file=miniob/db/sys/sys.db
+[2024-10-05 21:51:05.684578 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: open_all_tables@db.cpp:242] >> All table have been opened. num=0
+[2024-10-05 21:51:06.477507 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: recover@db.cpp:323] >> Successfully recover db. db=sys checkpoint_lsn=0
+[2024-10-05 21:51:06.477642 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: init@default_handler.cpp:69] >> Default handler init with miniob success
+[2024-10-05 21:51:06.477670 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: init@init.cpp:215] >> Successfully init utility
+[2024-10-05 21:51:06.477766 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: start_tcp_server@server.cpp:194] >> Listen on port 6789
+[2024-10-05 21:51:06.477788 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: start_tcp_server@server.cpp:197] >> Observer start success
+[2024-10-05 21:51:20.648377 pid:8965 tid:7ffff7e9e7c0 ctx:0 INFO: accept@server.cpp:129] >> Accepted connection from 127.0.0.1:50842
+
+[2024-10-05 21:51:20.649299 pid:8965 tid:7ffff2400640 ctx:0 INFO: operator()@one_thread_per_connection_thread_handler.cpp:70] >> worker thread start. communicator = 0x60b000000670
+[2024-10-05 21:51:29.427847 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:51:29.428274 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 WARN: create@select_stmt.cpp:55] >> no such table. db=sys, table_name=t
+[2024-10-05 21:51:29.428330 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 WARN: handle_request@resolve_stage.cpp:51] >> failed to create stmt. rc=25:SCHEMA_TABLE_NOT_EXIST
+[2024-10-05 21:51:29.428499 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:51:52.255749 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=13): show tables
+
+[2024-10-05 21:51:52.256049 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:52:02.345381 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=23): create table t(a int)
+
+[2024-10-05 21:52:02.345744 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: create@table.cpp:67] >> Begin to create table miniob/db/sys:t
+[2024-10-05 21:52:02.345843 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: init@field_meta.cpp:57] >> Init a field with name=a
+[2024-10-05 21:52:02.345865 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: init@table_meta.cpp:97] >> Sussessfully initialized table meta. table id=0, name=t
+[2024-10-05 21:52:02.346409 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: create_file@disk_buffer_pool.cpp:838] >> Successfully create miniob/db/sys/t.data.
+[2024-10-05 21:52:02.346497 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: open_file@disk_buffer_pool.cpp:234] >> Successfully open buffer pool file miniob/db/sys/t.data.
+[2024-10-05 21:52:02.346580 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: open_file@disk_buffer_pool.cpp:272] >> Successfully open miniob/db/sys/t.data. file_desc=7, hdr_frame=0x7ffff6efa808, file header=pageCount:1, allocatedCount:1
+[2024-10-05 21:52:02.346714 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: init_free_pages@record_manager.cpp:538] >> record file handler init free pages done. free page num=0, rc=SUCCESS
+[2024-10-05 21:52:02.346754 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: init@record_manager.cpp:497] >> open record file handle done. rc=SUCCESS
+[2024-10-05 21:52:02.346768 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: create@table.cpp:126] >> Successfully create table miniob/db/sys:t
+[2024-10-05 21:52:02.346803 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: create_table@db.cpp:160] >> Create table success. table name=t, table_id:0
+[2024-10-05 21:52:02.346911 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: sync@table.cpp:564] >> Sync table over. table=t
+[2024-10-05 21:52:02.346931 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: sync@db.cpp:266] >> Successfully sync table db:sys, table:t.
+[2024-10-05 21:52:02.347960 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: sync@db.cpp:271] >> double write buffer flush pages ret=SUCCESS
+[2024-10-05 21:52:02.348067 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: flush_meta@db.cpp:404] >> Successfully write db meta file. db=sys, file=miniob/db/sys/sys.db.tmp, check_point_lsn=0
+[2024-10-05 21:52:02.348103 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: sync@db.cpp:290] >> Successfully sync db. db=sys
+[2024-10-05 21:52:02.348116 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: execute@command_executor.cpp:102] >> sync db after ddl. rc=0
+[2024-10-05 21:52:02.348187 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:52:10.281102 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:52:10.281353 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:52:10.281572 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:52:29.459863 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:52:29.460107 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:52:29.460242 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:52:36.443385 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:52:36.443655 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:52:36.443811 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:52:51.904374 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:52:51.904624 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:52:51.904722 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:53:29.008615 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:53:47.513407 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:53:47.513594 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:53:55.220008 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:54:24.892494 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:54:24.892659 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:55:46.647595 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:55:53.555530 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:55:53.555688 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:57:15.379961 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=26): insert into t values (1)
+
+[2024-10-05 21:57:15.380172 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:57:15.380296 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: allocate_page@disk_buffer_pool.cpp:409] >> allocate new page. file=miniob/db/sys/t.data, pageNum=1, pin=1
+[2024-10-05 21:57:15.380510 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:59:05.128149 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 21:59:12.441398 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 21:59:12.441652 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 21:59:49.400650 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=28): update t set a=1 where a=2
+
+[2024-10-05 22:00:05.660451 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 ERROR: execute@command_executor.cpp:94] >> unknown command: 3
+[2024-10-05 22:00:05.660693 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:03:51.403080 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 22:03:55.080900 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 22:03:55.081136 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:04:25.246820 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 22:06:38.301770 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 22:06:49.697002 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:07:02.660577 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=28): update t set a=1 where a=2
+
+[2024-10-05 22:08:11.878386 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 ERROR: execute@command_executor.cpp:94] >> unknown command: 3
+[2024-10-05 22:08:11.878588 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:08:22.605216 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 22:08:35.475216 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 22:09:03.624163 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:10:14.462204 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 22:10:18.853903 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 22:10:19.672847 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:13:38.128437 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 22:13:49.576805 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 22:14:24.683999 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:15:40.066750 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=26): insert into t values (1)
+
+[2024-10-05 22:15:44.792408 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 22:16:57.780180 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:17:07.008032 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=26): insert into t values (1)
+
+[2024-10-05 22:17:11.766963 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 22:17:39.787100 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:18:03.063681 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=29):  update t set a=1 where a=2
+
+[2024-10-05 22:22:36.879661 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 ERROR: execute@command_executor.cpp:94] >> unknown command: 3
+[2024-10-05 22:22:36.879832 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 22:22:43.661146 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=29):  update t set a=1 where a=2
+
+[2024-10-05 23:34:18.333565 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 ERROR: execute@command_executor.cpp:94] >> unknown command: 3
+[2024-10-05 23:34:18.333753 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 23:34:36.166692 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=20): delete t where a=1
+
+[2024-10-05 23:34:36.166894 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 23:35:08.770032 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=25): delete from t where a=1
+
+[2024-10-05 23:35:08.770342 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 23:35:08.770595 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS
+[2024-10-05 23:35:18.458936 pid:8965 tid:7ffff2400640 ctx:0 INFO: read_event@plain_communicator.cpp:89] >> receive command(size=17): select * from t
+
+[2024-10-05 23:35:18.459202 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: generate_physical_plan@optimize_stage.cpp:85] >> use tuple iterator
+[2024-10-05 23:35:18.459356 pid:8965 tid:7ffff2400640 ctx:60300001f7b0 INFO: handle_event@sql_task_handler.cpp:45] >> write result return SUCCESS

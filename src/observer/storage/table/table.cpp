@@ -30,6 +30,7 @@ See the Mulan PSL v2 for more details. */
 #include "storage/record/record_manager.h"
 #include "storage/table/table.h"
 #include "storage/trx/trx.h"
+#include "table.h"
 
 Table::~Table()
 {
@@ -487,6 +488,10 @@ RC Table::delete_record(const RID &rid)
   return delete_record(record);
 }
 
+RC Table::update_record(char *record_data, const Value &value, const FieldMeta *field) 
+{ 
+  return set_value_to_record(record_data,value,field); 
+}
 RC Table::delete_record(const Record &record)
 {
   RC rc = RC::SUCCESS;

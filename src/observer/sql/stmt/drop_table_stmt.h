@@ -22,7 +22,7 @@ See the Mulan PSL v2 for more details. */
 class Db;
 
 /**
- * @brief 表示创建表的语句
+ * @brief 表示drop table的语句
  * @ingroup Statement
  * @details 虽然解析成了stmt，但是与原始的SQL解析后的数据也差不多
  */
