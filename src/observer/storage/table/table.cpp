@@ -280,6 +280,7 @@ const char *Table::name() const { return table_meta_.name(); }
 
 const TableMeta &Table::table_meta() const { return table_meta_; }
 
+
 RC Table::make_record(int value_num, const Value *values, Record &record)
 {
   RC rc = RC::SUCCESS;
@@ -319,6 +320,10 @@ RC Table::make_record(int value_num, const Value *values, Record &record)
 
   record.set_data_owner(record_data, record_size);
   return RC::SUCCESS;
+}
+
+RC Table::update_record(char *record_data, const Value &value, const FieldMeta *field){
+  return set_value_to_record(record_data, value, field);
 }
 
 RC Table::set_value_to_record(char *record_data, const Value &value, const FieldMeta *field)
