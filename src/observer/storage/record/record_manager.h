@@ -378,7 +378,14 @@ public:
    * @param rid 待删除记录的标识符
    */
   RC delete_record(const RID *rid);
-
+  
+  /**
+   * @brief 从指定文件中update指定槽位的记录
+   *
+   * @param rid 待upddate记录的标识符
+   */
+  RC update_record(Record &record);
+  
   /**
    * @brief 插入一个新的记录到指定文件中，并返回该记录的标识符
    *

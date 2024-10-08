@@ -16,6 +16,7 @@ See the Mulan PSL v2 for more details. */
 #include "storage/common/condition_filter.h"
 #include "storage/trx/trx.h"
 #include "storage/clog/log_handler.h"
+#include "record_manager.h"
 
 using namespace common;
 
@@ -646,6 +647,32 @@ RC RecordFileHandler::delete_record(const RID *rid)
     lock_.unlock();
   }
   return rc;
+}
+
+RC RecordFileHandler::update_record(Record &record) 
+{ 
+  RC rc = RC::SUCCESS;
+
+  unique_ptr<RecordPageHandler> record_page_handler(RecordPageHandler::create(storage_format_));
+
+  rc = record_page_handler->init(*disk_buffer_pool_, *log_handler_, record.rid().page_num, ReadWriteMode::READ_WRITE);
+  if (OB_FAIL(rc)) {
+    LOG_ERROR("Failed to init record page handler.page number=%d. rc=%s", record.rid().page_num, strrc(rc));
+    return rc;
+  }
+
+  record_page_handler->update_record(record.rid(),record.data());
+  
+  record_page_handler->cleanup();
+  if (OB_SUCC(rc)) {
+    // 因为这里已经释放了页面锁，并发时，其它线程可能又把该页面填满了，那就不应该再放入 free_pages_
+    // 中。但是这里可以不关心，因为在查找空闲页面时，会自动过滤掉已经满的页面
+    lock_.lock();
+    free_pages_.insert(record.rid().page_num);
+    LOG_TRACE("add free page %d to free page list", record.rid().page_num);
+    lock_.unlock();
+  }
+return rc;
 }
 
 RC RecordFileHandler::get_record(const RID &rid, Record &record)

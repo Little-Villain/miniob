@@ -59,10 +59,11 @@ RC UpdatePhysicalOperator::open(Trx *trx)
             table_->table_meta().name(), field_metas->name(),values_->to_string().c_str());
         break;
       }
-      rc = table_->update_record(record.data(), real_value, field_metas);
+      rc = table_->update_record(record, real_value, field_metas);
     } else {
-    rc = table_->update_record(record.data(),*values_,field_metas);
+    rc = table_->update_record(record,*values_,field_metas);
     }
+    
     if (rc != RC::SUCCESS) {
       LOG_WARN("failed to update record: %s", strrc(rc));
       return rc;

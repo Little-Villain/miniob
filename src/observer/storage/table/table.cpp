@@ -283,7 +283,7 @@ const TableMeta &Table::table_meta() const { return table_meta_; }
 RC Table::make_record(int value_num, const Value *values, Record &record)
 {
   RC rc = RC::SUCCESS;
-  // 检查字段类型是否一致
+  // 检查字段类型是否一致////
   if (value_num + table_meta_.sys_field_num() != table_meta_.field_num()) {
     LOG_WARN("Input values don't match the table's schema, table name:%s", table_meta_.name());
     return RC::SCHEMA_FIELD_MISSING;
@@ -488,9 +488,15 @@ RC Table::delete_record(const RID &rid)
   return delete_record(record);
 }
 
-RC Table::update_record(char *record_data, const Value &value, const FieldMeta *field) 
+RC Table::update_record(Record &record, const Value &value, const FieldMeta *field ) 
 { 
-  return set_value_to_record(record_data,value,field); 
+  //char *record_data, const Value &value, const FieldMeta *field
+  //const FieldMeta *fieldconst, Value *values, Record &record
+  //const int normal_field_start_index = table_meta_.sys_field_num();
+  RC rc = RC::SUCCESS;
+  set_value_to_record(record.data(), value, field);
+  rc    = record_handler_->update_record(record);
+  return rc;
 }
 RC Table::delete_record(const Record &record)
 {
