@@ -488,18 +488,12 @@ RC Table::delete_record(const RID &rid)
   return delete_record(record);
 }
 
-RC Table::update_record(Record &record, const Value &value, string &field_name) 
+RC Table::update_record(Record &record, const Value &value, const FieldMeta *field) 
 { 
   //char *record_data, const Value &value, const FieldMeta *field
   //const FieldMeta *fieldconst, Value *values, Record &record
   //const int normal_field_start_index = table_meta_.sys_field_num();
   RC rc = RC::SUCCESS;
-  const FieldMeta *field=table_meta_.field(field_name.c_str());
-  
-  if (nullptr == field) {
-    LOG_WARN("no such field in table: table %s, field %s", name(),field_name.c_str());
-    return RC::SCHEMA_FIELD_NOT_EXIST;
-  }
   
   if (field->type() != value.attr_type()) {
       Value real_value;

@@ -50,14 +50,20 @@ RC UpdatePhysicalOperator::open(Trx *trx)
   // 先收集记录再update
   // 记录的有效性由事务来保证，如果事务不保证删除的有效性，那说明此事务类型不支持并发控制，比如VacuousTrx
   
-  if(records_.empty()){
+  /*if(records_.empty()){
     rc=RC::RECORD_NOT_EXIST;
     LOG_WARN("failed to update record: %s", strrc(rc));
     return rc;
+  }*/
+  const FieldMeta *field=table_->table_meta().field(attribute_name_.c_str());
+  
+  if (nullptr == field) {
+    LOG_WARN("no such field in table: table %s, field %s", table_->name(),attribute_name_.c_str());
+    return RC::SCHEMA_FIELD_NOT_EXIST;
   }
 
   for (Record &record : records_) {
-    rc = table_->update_record(record,*values_,attribute_name_);
+    rc = table_->update_record(record,*values_,field);
     if (rc != RC::SUCCESS) {
       LOG_WARN("failed to update record: %s", strrc(rc));
       return rc;
