@@ -503,6 +503,7 @@ expression_list:
       $$->emplace($$->begin(), $1);
     }
     ;
+    
 expression:
     expression '+' expression {
       $$ = create_arithmetic_expression(ArithmeticExpr::Type::ADD, $1, $3, sql_string, &@$);
