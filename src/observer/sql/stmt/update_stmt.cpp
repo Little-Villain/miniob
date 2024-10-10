@@ -18,13 +18,20 @@ See the Mulan PSL v2 for more details. */
 #include "storage/table/table.h"
 #include "sql/stmt/filter_stmt.h"
 
-
+UpdateStmt::~UpdateStmt()
+{
+  if (nullptr != filter_stmt_) {
+    delete filter_stmt_;
+    filter_stmt_ = nullptr;
+  }
+}
 UpdateStmt::UpdateStmt(Table *table, const Value *values, int value_amount,FilterStmt* filter_stmt,std::string attribute_name)
     : table_(table), values_(values), value_amount_(value_amount),filter_stmt_(filter_stmt),attribute_name_(attribute_name)
 {}
 
 RC UpdateStmt::create(Db *db, const UpdateSqlNode &update_sql, Stmt *&stmt)
 {
+
   const char *table_name = update_sql.relation_name.c_str();
   if (nullptr == db || nullptr == table_name ) {
     LOG_WARN("invalid argument. db=%p, table_name=%p, value=%d",
@@ -40,7 +47,7 @@ RC UpdateStmt::create(Db *db, const UpdateSqlNode &update_sql, Stmt *&stmt)
   }
 
   std::unordered_map<std::string, Table *> table_map;
-  //table_map.insert(std::pair<std::string, Table *>(std::string(table_name), table));
+  table_map.insert(std::pair<std::string, Table *>(std::string(table_name), table));
 
   FilterStmt *filter_stmt = nullptr;
   RC          rc          = FilterStmt::create(

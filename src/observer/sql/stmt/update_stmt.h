@@ -29,7 +29,7 @@ class UpdateStmt : public Stmt
 public:
   UpdateStmt() = default;
   UpdateStmt(Table *table, const Value *values, int value_amount, FilterStmt *filter_stmt,std::string attribute_name);
-
+  ~UpdateStmt() override;
   StmtType type() const override { return StmtType::UPDATE; }
 
 public:
