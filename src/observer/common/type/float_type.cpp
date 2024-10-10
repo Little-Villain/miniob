@@ -15,6 +15,7 @@ See the Mulan PSL v2 for more details. */
 #include "common/value.h"
 #include "common/lang/limits.h"
 #include "common/value.h"
+#include "float_type.h"
 
 int FloatType::compare(const Value &left, const Value &right) const
 {
@@ -59,7 +60,29 @@ RC FloatType::negative(const Value &val, Value &result) const
   return RC::SUCCESS;
 }
 
-RC FloatType::set_value_from_str(Value &val, const string &data) const
+RC FloatType::cast_to(const Value &val, AttrType type, Value &result) const 
+{ 
+  switch (type) {
+    case AttrType::INTS:
+    {
+      result.attr_type_=AttrType::INTS;
+      result.set_int(int(val.get_float()));
+    }break;
+    default: return RC::UNIMPLEMENTED;
+  }
+  return RC::SUCCESS; 
+}
+int FloatType::cast_cost(AttrType type) 
+{ 
+  if (type == AttrType::INTS) {
+    return 1;
+  }
+  if (type == AttrType::CHARS) {
+    return 1;
+  }
+  return INT32_MAX;
+}
+RC  FloatType::set_value_from_str(Value &val, const string &data) const
 {
   RC                rc = RC::SUCCESS;
   stringstream deserialize_stream;
