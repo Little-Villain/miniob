@@ -69,6 +69,11 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
         CREATE
         DROP
         GROUP
+        COUNT
+        SUM
+        AVG
+        MAX
+        MIN
         TABLE
         TABLES
         INDEX
@@ -517,6 +522,21 @@ expression:
     }
     | '-' expression %prec UMINUS {
       $$ = create_arithmetic_expression(ArithmeticExpr::Type::NEGATIVE, $2, nullptr, sql_string, &@$);
+    }
+    | COUNT expression {
+      $$ = create_aggregate_expression("count", $2 , sql_string, &@$);
+    }
+    | SUM expression {
+      $$ = create_aggregate_expression("sum", $2 , sql_string, &@$);
+    }
+    | AVG  expression {
+      $$ = create_aggregate_expression("avg", $2 , sql_string, &@$);
+    }
+    | MAX  expression {
+      $$ = create_aggregate_expression("max", $2 , sql_string, &@$);
+    }
+    | MIN  expression {
+      $$ = create_aggregate_expression("min", $2 , sql_string, &@$);
     }
     | value {
       $$ = new ValueExpr(*$1);
