@@ -11,7 +11,7 @@ See the Mulan PSL v2 for more details. */
 //
 // Created by wangyunlai on 2021/6/11.
 //
-
+#include <regex>
 #include "common/defs.h"
 #include <string.h>
 #include <queue>
@@ -74,55 +74,21 @@ int compare_string_like(void *arg1, int arg1_max_length, void *arg2, int arg2_ma
   //返回值成功为1，不成功为0
   const char *s1     = (const char *)arg1;
   const char *s2     = (const char *)arg2;
-  int         leftlen= arg1_max_length;
-  queue<string> que;
-
   string s="";
-  for(int i=0;i<arg2_max_length;i++){//处理%
-    if(s2[i]!='%')
-      s+=s2[i];
-    else{
-      que.push(s);
-      s="";
-    }
-  }
-  if(s!="")
-  	que.push(s);
-  int p=0;//匹配已到左表达式的某处
-  int num=que.size(); 
-  while(!que.empty()){
-    string str=que.front();
-    int rightlen=str.length();
-    int i=0,j=0;
-    while(i<leftlen&&j<rightlen){
-      if(str[j]==s1[i]||str[j]=='_'){
-        i++;
-        j++;
-      }
-      else if(str[j]!=s1[i]){
-      	if(que.size()==(long unsigned int)num&&s2[0]!='%'){
-          while(!que.empty())
-          	que.pop();
-          return 0;
-        }
-        i++;
-        j=0;
-      }
-    }
-    if(j==rightlen){//匹配成功
-      que.pop();
-      p=i;
-    }
-    else{
-      while(!que.empty())
-        que.pop();
-      return 0;
-    }
-  }
-  if(p!=leftlen&&s2[arg2_max_length-1]!='%'){
-  	return 0;
-  }
-  return 1;	
+	for(int i=0;i<arg2_max_length;i++){
+		if(s2[i]=='%'){
+			s+="(.*)";
+			continue;
+		}
+		if(s2[i]=='_'){
+			s+=".";
+			continue;
+		}
+		s+=s2[i];
+	}
+	if(regex_match(s1,regex(s)))
+		return 1;
+	return 0;
 }
 
 }  // namespace common
