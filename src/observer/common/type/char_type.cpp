@@ -20,6 +20,12 @@ int CharType::compare(const Value &left, const Value &right) const
   return common::compare_string(
       (void *)left.value_.pointer_value_, left.length_, (void *)right.value_.pointer_value_, right.length_);
 }
+int CharType::compare_like(const Value &left, const Value &right) const
+{
+  ASSERT(left.attr_type() == AttrType::CHARS && right.attr_type() == AttrType::CHARS, "invalid type");
+  return common::compare_string_like(
+      (void *)left.value_.pointer_value_, left.length_, (void *)right.value_.pointer_value_, right.length_);
+}
 
 RC CharType::set_value_from_str(Value &val, const string &data) const
 {
