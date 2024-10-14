@@ -95,6 +95,7 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
         STRING_T
         DATE_T
         FLOAT_T
+        NL
         HELP
         EXIT
         DOT //QUOTE
@@ -350,6 +351,7 @@ attr_def:
       $$->type = (AttrType)$2;
       $$->name = $1;
       $$->length = $4;
+      $$->is_null= 1;
       free($1);
     }
     | ID type
@@ -358,6 +360,25 @@ attr_def:
       $$->type = (AttrType)$2;
       $$->name = $1;
       $$->length = 4;
+      $$->is_null= 1;
+      free($1);
+    }
+    | ID type NT NL
+    {
+      $$ = new AttrInfoSqlNode;
+      $$->type = (AttrType)$2;
+      $$->name = $1;
+      $$->length = 4;
+      $$->is_null= 0;
+      free($1);
+    }
+    | ID type NL
+    {
+      $$ = new AttrInfoSqlNode;
+      $$->type = (AttrType)$2;
+      $$->name = $1;
+      $$->length = 4;
+      $$->is_null= 1;
       free($1);
     }
     ;
@@ -402,6 +423,9 @@ value_list:
     }
     ;
 value:
+    NL{
+      
+    }
     NUMBER {
       $$ = new Value((int)$1);
       @$ = @1;
