@@ -707,6 +707,17 @@ condition:
 
       delete $1;
     }
+    | value comp_op 
+    {
+      $$ = new ConditionSqlNode;
+      $$->left_is_attr = 0;
+      $$->left_value = *$1;
+      $$->right_is_attr = 0;
+      $$->right_value.set_null(1);
+      $$->comp = $2;
+
+      delete $1;
+    }
     ;
 
 comp_op:
