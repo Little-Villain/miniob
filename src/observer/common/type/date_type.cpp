@@ -24,3 +24,31 @@ RC DateType::to_string(const Value &val, string &result)const
     result=ss.str();
     return RC::SUCCESS;
 } 
+
+RC DateType::cast_to(const Value &val, AttrType type, Value &result) const 
+{ 
+  if(val.is_null()){
+    result.set_null(1);
+    result.set_string("!!!");
+    return RC::SUCCESS;
+  }
+  switch (type) {
+    case AttrType::INTS:
+    {
+      result.attr_type_=AttrType::INTS;
+      result.set_int(int(0));
+      LOG_WARN("cast date to int, it's only allowed when compares to null!");
+    }break;//for compare to null
+    default: return RC::UNIMPLEMENTED;
+  }
+  return RC::SUCCESS; 
+}
+int DateType::cast_cost(AttrType type)
+{ 
+  if (type == AttrType::INTS) 
+  {
+    LOG_WARN("cast date to int, it's only allowed when compares to null!");
+    return 100;
+  }
+  return INT32_MAX;
+}
