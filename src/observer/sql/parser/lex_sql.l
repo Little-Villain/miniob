@@ -97,6 +97,7 @@ SELECT                                  RETURN_TOKEN(SELECT);
 CALC                                    RETURN_TOKEN(CALC);
 FROM                                    RETURN_TOKEN(FROM);
 WHERE                                   RETURN_TOKEN(WHERE);
+IS                                      RETURN_TOKEN(IS);
 NOT                                     RETURN_TOKEN(NT);
 LIKE                                    RETURN_TOKEN(LK);
 AND                                     RETURN_TOKEN(AND);

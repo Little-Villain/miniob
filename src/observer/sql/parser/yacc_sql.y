@@ -103,6 +103,7 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
         VALUES
         FROM
         WHERE
+        IS
         NT
         LK
         AND
@@ -695,6 +696,17 @@ condition:
       delete $1;
       delete $3;
     }
+    | rel_attr comp_op
+    {
+      $$ = new ConditionSqlNode;
+      $$->left_is_attr = 1;
+      $$->left_attr = *$1;
+      $$->right_is_attr = 0;
+      $$->right_value.set_null(1);
+      $$->comp = $2;
+
+      delete $1;
+    }
     ;
 
 comp_op:
@@ -706,6 +718,8 @@ comp_op:
     | NE { $$ = NOT_EQUAL; }
     | NT LK{ $$ = NOT_LIKE; }
     | LK { $$ = LIKE; }
+    | IS NT NL{$$ = IS_NOT_NULL;}
+    | IS NL{$$= IS_NULL;}
     ;
 
 // your code here
