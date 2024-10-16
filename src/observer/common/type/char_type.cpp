@@ -37,13 +37,7 @@ RC CharType::cast_to(const Value &val, AttrType type, Value &result) const
 {
   if(val.is_null()){
     result.set_null(1);
-    // switch (type) {
-    //   case AttrType::INTS:result.set_int(int(0));break;
-    //   case AttrType::FLOATS:result.set_float(float(0));break;
-    //   case AttrType::CHARS:result.set_string("null");break;
-    //   default: return RC::UNIMPLEMENTED;
-    // }
-    result.set_string("!");
+    result.set_string("!!!");
     return RC::SUCCESS;
   }
   switch (type) {

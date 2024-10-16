@@ -138,7 +138,7 @@ void Value::set_data(char *data, int length)
       LOG_WARN("unknown data type: %d", attr_type_);
     } break;
   }
-  if(!strcmp(data,"!")){
+  if(!strcmp(data,"!!!")){
     this->set_null(1);
   }
 }
@@ -232,10 +232,7 @@ const char *Value::data() const
     case AttrType::CHARS: {
       return value_.pointer_value_;
     } break;
-    /* case AttrType::DATES: {
-      return value_.int_value_;
-    } break;*/
-    
+
     default: {
       return (const char *)&value_;
     } break;
