@@ -298,7 +298,7 @@ RC Table::make_record(int value_num, const Value *values, Record &record)
   for (int i = 0; i < value_num && OB_SUCC(rc); i++) {
     const FieldMeta *field = table_meta_.field(i + normal_field_start_index);
     const Value &    value = values[i];
-    if (field->type() != value.attr_type()) {
+    if (field->type() != value.attr_type()||value.is_null()) {
       Value real_value;
       rc = Value::cast_to(value, field->type(), real_value);
       if (OB_FAIL(rc)) {
@@ -323,9 +323,13 @@ RC Table::make_record(int value_num, const Value *values, Record &record)
 
 RC Table::set_value_to_record(char *record_data, const Value &value, const FieldMeta *field)
 {
+  if(!field->nullable()&&value.is_null()){
+    LOG_WARN("The field: %s can't be null",field->name());
+    return RC::INVALID_ARGUMENT;
+  }
   size_t       copy_len = field->len();
   const size_t data_len = value.length();
-  if (field->type() == AttrType::CHARS) {
+  if (field->type() == AttrType::CHARS||value.is_null()) {
     if (copy_len > data_len) {
       copy_len = data_len + 1;
     }

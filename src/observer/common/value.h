@@ -13,7 +13,7 @@ See the Mulan PSL v2 for more details. */
 //
 
 #pragma once
-
+#include "common/log/log.h"
 #include "common/lang/string.h"
 #include "common/lang/memory.h"
 #include "common/type/attr_type.h"
@@ -91,7 +91,8 @@ public:
   void set_value(const Value &value);
   void set_boolean(bool val);
   void set_date(int y,int m,int d);
-
+  void set_null(int null) {this->null_=null;}
+  bool is_null()const{LOG_WARN("is_null:%d",null_);return null_==1?true:false;}
   string to_string() const;
 
   int compare(const Value &other) const;
@@ -121,7 +122,7 @@ private:
 private:
   AttrType attr_type_ = AttrType::UNDEFINED;
   int      length_    = 0;
-
+  int      null_      = 0;
   union Val
   {
     int32_t int_value_;

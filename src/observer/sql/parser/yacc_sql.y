@@ -351,7 +351,7 @@ attr_def:
       $$->type = (AttrType)$2;
       $$->name = $1;
       $$->length = $4;
-      $$->is_null= 1;
+      $$->is_null= 0;
       free($1);
     }
     | ID type
@@ -360,7 +360,7 @@ attr_def:
       $$->type = (AttrType)$2;
       $$->name = $1;
       $$->length = 4;
-      $$->is_null= 1;
+      $$->is_null= 0;
       free($1);
     }
     | ID type NT NL
@@ -424,9 +424,10 @@ value_list:
     ;
 value:
     NL{
-      
+      $$=new Value((int)0);
+      $$->set_null(1);
     }
-    NUMBER {
+    |NUMBER {
       $$ = new Value((int)$1);
       @$ = @1;
     }

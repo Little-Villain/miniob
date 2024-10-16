@@ -30,6 +30,7 @@ Value::Value(const char *s, int len /*= 0*/) { set_string(s, len); }
 
 Value::Value(const Value &other)
 {
+  this->null_      = other.null_;
   this->attr_type_ = other.attr_type_;
   this->length_    = other.length_;
   this->own_data_  = other.own_data_;
@@ -46,6 +47,7 @@ Value::Value(const Value &other)
 
 Value::Value(Value &&other)
 {
+  this->null_      = other.null_;
   this->attr_type_ = other.attr_type_;
   this->length_    = other.length_;
   this->own_data_  = other.own_data_;
@@ -60,6 +62,7 @@ Value &Value::operator=(const Value &other)
     return *this;
   }
   reset();
+  this->null_      = other.null_;
   this->attr_type_ = other.attr_type_;
   this->length_    = other.length_;
   this->own_data_  = other.own_data_;
@@ -81,6 +84,7 @@ Value &Value::operator=(Value &&other)
     return *this;
   }
   reset();
+  this->null_      = other.null_;
   this->attr_type_ = other.attr_type_;
   this->length_    = other.length_;
   this->own_data_  = other.own_data_;
@@ -133,6 +137,9 @@ void Value::set_data(char *data, int length)
     default: {
       LOG_WARN("unknown data type: %d", attr_type_);
     } break;
+  }
+  if(!strcmp(data,"!")){
+    this->set_null(1);
   }
 }
 

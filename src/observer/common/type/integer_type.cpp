@@ -53,6 +53,17 @@ RC IntegerType::negative(const Value &val, Value &result) const
 
 RC IntegerType::cast_to(const Value &val, AttrType type, Value &result) const 
 { 
+  if(val.is_null()){
+    result.set_null(1);
+    // switch (type) {
+    //   case AttrType::INTS:result.set_int(int(0));break;
+    //   case AttrType::FLOATS:result.set_float(float(0));break;
+    //   case AttrType::CHARS:result.set_string("null");break;
+    //   default: return RC::UNIMPLEMENTED;
+    // }
+    result.set_string("!");
+    return RC::SUCCESS;
+  }
   switch (type) {
     case AttrType::FLOATS:
     {
@@ -93,7 +104,11 @@ RC  IntegerType::set_value_from_str(Value &val, const string &data) const
 RC IntegerType::to_string(const Value &val, string &result) const
 {
   stringstream ss;
-  ss << val.value_.int_value_;
+  if(val.is_null()){
+    ss << "null";
+  }
+  else
+    ss << val.value_.int_value_;
   result = ss.str();
   return RC::SUCCESS;
 }

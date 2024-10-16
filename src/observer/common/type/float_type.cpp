@@ -62,6 +62,17 @@ RC FloatType::negative(const Value &val, Value &result) const
 
 RC FloatType::cast_to(const Value &val, AttrType type, Value &result) const 
 { 
+  if(val.is_null()){
+    result.set_null(1);
+    // switch (type) {
+    //   case AttrType::INTS:result.set_int(int(0));break;
+    //   case AttrType::FLOATS:result.set_float(float(0));break;
+    //   case AttrType::CHARS:result.set_string("null");break;
+    //   default: return RC::UNIMPLEMENTED;
+    // }
+    result.set_string("!");
+    return RC::SUCCESS;
+  }
   switch (type) {
     case AttrType::INTS:
     {
@@ -101,6 +112,10 @@ RC  FloatType::set_value_from_str(Value &val, const string &data) const
 
 RC FloatType::to_string(const Value &val, string &result) const
 {
+  if(val.is_null()){
+    result="null";
+    return RC::SUCCESS;
+  }
   stringstream ss;
   ss << common::double_to_str(val.value_.float_value_);
   result = ss.str();
