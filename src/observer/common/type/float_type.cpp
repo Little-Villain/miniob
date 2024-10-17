@@ -74,7 +74,12 @@ RC FloatType::cast_to(const Value &val, AttrType type, Value &result) const
       result.attr_type_=AttrType::INTS;
       result.set_int(int(val.get_float()));
     }break;
-    default: return RC::UNIMPLEMENTED;
+    default: 
+    {
+      result.set_null(1);
+      result.set_string("!!!");
+      return RC::SUCCESS;
+    }
   }
   return RC::SUCCESS; 
 }
@@ -86,7 +91,8 @@ int FloatType::cast_cost(AttrType type)
   if (type == AttrType::CHARS) {
     return 1;
   }
-  return INT32_MAX;
+  
+  return INT32_MAX-1;
 }
 RC  FloatType::set_value_from_str(Value &val, const string &data) const
 {

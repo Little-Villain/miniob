@@ -666,30 +666,6 @@ condition_list:
     }
     ;
 condition:
-    NL comp_op value 
-    {
-      $$ = new ConditionSqlNode;
-      $$->left_is_attr = 0;
-      $$->left_value.set_null(1);
-      $$->right_is_attr = 0;
-      $$->right_value.set_null(1);
-      $$->comp = $2;
-
-      delete $3;
-    }
-    |
-    value comp_op NL
-    {
-      $$ = new ConditionSqlNode;
-      $$->left_is_attr = 0;
-      $$->left_value.set_null(1);
-      $$->right_is_attr = 0;
-      $$->right_value.set_null(1);
-      $$->comp = $2;
-
-      delete $1;
-    }
-    |
     rel_attr comp_op value
     {
       $$ = new ConditionSqlNode;
