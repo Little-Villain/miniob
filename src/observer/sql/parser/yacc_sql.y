@@ -355,6 +355,24 @@ attr_def:
       $$->is_null= 0;
       free($1);
     }
+    | ID type LBRACE number RBRACE NT NL
+    {
+      $$ = new AttrInfoSqlNode;
+      $$->type = (AttrType)$2;
+      $$->name = $1;
+      $$->length = $4;
+      $$->is_null= 0;
+      free($1);
+    }
+    | ID type LBRACE number RBRACE NL
+    {
+      $$ = new AttrInfoSqlNode;
+      $$->type = (AttrType)$2;
+      $$->name = $1;
+      $$->length = $4;
+      $$->is_null= 1;
+      free($1);
+    }
     | ID type
     {
       $$ = new AttrInfoSqlNode;
