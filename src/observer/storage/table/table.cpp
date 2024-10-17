@@ -499,7 +499,7 @@ RC Table::update_record(Record &record, const Value &value, const FieldMeta *fie
   //const int normal_field_start_index = table_meta_.sys_field_num();
   RC rc = RC::SUCCESS;
   
-  if (field->type() != value.attr_type()) {
+  if (field->type() != value.attr_type()&&!value.is_null()) {
       Value real_value;
       rc = Value::cast_to(value, field->type(), real_value);
       if (OB_FAIL(rc)) {

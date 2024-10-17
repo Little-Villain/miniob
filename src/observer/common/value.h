@@ -91,7 +91,7 @@ public:
   void set_value(const Value &value);
   void set_boolean(bool val);
   void set_date(int y,int m,int d);
-  void set_null(int null) {this->null_=null;}
+  void set_null(int null) {this->null_=null;if(null==1) this->set_string("!!!");}
   bool is_null()const{LOG_WARN("is_null:%d",null_);return null_==1?true:false;}
   string to_string() const;
 
